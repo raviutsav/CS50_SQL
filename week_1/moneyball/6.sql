@@ -1,0 +1,1 @@
+SELECT teams.name, t.hits as 'total hits' FROM "teams" JOIN (SELECT team_id, SUM(H) as 'hits' FROM "performances" WHERE year = 2001 GROUP BY team_id) t ON teams.id = t.team_id ORDER BY t.hits DESC LIMIT 5;

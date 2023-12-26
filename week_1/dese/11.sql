@@ -1,0 +1,1 @@
+SELECT t.name, expenditures.per_pupil_expenditure, t.graduated FROM "expenditures" JOIN (SELECT * FROM "schools" JOIN "graduation_rates" ON schools.id = graduation_rates.school_id) t ON t.district_id = expenditures.district_id ORDER BY expenditures.per_pupil_expenditure DESC, t.name;

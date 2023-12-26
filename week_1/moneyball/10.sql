@@ -1,0 +1,1 @@
+SELECT players.first_name, players.last_name, t.salary, t.HR, t.year FROM "players" JOIN (SELECT salaries.player_id, salaries.salary, performances.HR, salaries.year FROM "salaries" JOIN "performances" ON salaries.player_id = performances.player_id WHERE salaries.year = performances.year) t ON players.id = t.player_id ORDER BY players.id, t.year DESC, t.HR DESC, t.salary DESC;

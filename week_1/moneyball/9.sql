@@ -1,0 +1,1 @@
+SELECT teams.name, t.avg as 'average salary' FROM "teams" JOIN (SELECT team_id, ROUND(AVG(salary), 2) as 'avg' FROM "salaries" WHERE year = 2001 GROUP BY team_id) t ON teams.id = t.team_id ORDER BY t.avg LIMIT 5;
